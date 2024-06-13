@@ -3,15 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('assets/css/pablocamara-loader-2.css') }}">
 
-        <title>Laravel</title>
+        <title>@yield('title')</title>
 
         <style>
             html,body {
                 margin: 0;
                 padding: 0;
                 background-color: #525659;
+                font-family: "Roboto", sans-serif;
             }
 
             .main {
@@ -24,6 +28,8 @@
 
             .main-body {
                 background-color: #fff;
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
             .main-sidebar {
@@ -31,12 +37,69 @@
                 color: #fff;
                 width: 300px;
             }
+
+            #profile-pic {
+                text-align: center;
+            }
+
+            #profile-pic img {
+                width: 150px;
+                border-radius: 150px;
+            }
+
+            #job-title {
+                text-align: center;
+                font-weight: 100;
+                margin-top: 10px;
+                font-size: 16px;
+            }
+
+            #main-menu {
+                width: 260px;
+                margin: auto;
+                margin-top: 20px;
+            }
+
+            #main-menu .menu-item {
+                background-color: #184068;
+                padding: 8px;
+                margin-bottom: 10px;
+            }
+
+            #main-menu .menu-item:hover,
+            #main-menu .menu-item.active {
+                background-color: #1c5389;
+                cursor: pointer;
+            }
+
+            .education-box {
+                padding: 10px;
+                background: #f6fbff;
+                border: 1px solid #dddddd;
+                margin-bottom: 20px;
+            }
+
+            .education-box .grade {
+                font-size: 18px;
+            }
+
+            .education-box .date-range {
+                color: #686868;
+                text-transform: uppercase;
+                font-size: 14px;
+                margin-top: 4px;
+                margin-bottom: 8px;
+            }
+
+            .education-box .course {
+                font-size: 14px;
+            }
         </style>
     </head>
     <body>
         <div class="main">
             <div class="main-body">
-                
+                @yield('content')
             </div>
             <div class="main-sidebar">
                 <div id="pablocamara">
@@ -118,6 +181,19 @@
                     <div class="loadRightA4 start"></div>
                     <div class="loadTopA4 start"></div>
                     <div class="loadBottomA4 start"></div>
+                </div>
+                <div id="profile-pic">
+                    <img src="{{ asset('assets/img/profile-pic.jpg') }}" />
+                </div>
+                <div id="job-title">
+                    Full Stack Software Developer
+                </div>
+                <div id="main-menu">
+                    <div class="menu-item">Home</div>
+                    <div class="menu-item {{ request()->routeIs('education') ? 'active' : '' }}">Education</div>
+                    <div class="menu-item">Employment history</div>
+                    <div class="menu-item">Projects</div>
+                    <div class="menu-item">Contact</div>
                 </div>
             </div>
         </div>
