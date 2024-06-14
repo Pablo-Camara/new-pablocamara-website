@@ -64,6 +64,9 @@
                 background-color: #184068;
                 padding: 8px;
                 margin-bottom: 10px;
+                text-decoration: none;
+                display: block;
+                color: #fff;
             }
 
             #main-menu .menu-item:hover,
@@ -72,18 +75,18 @@
                 cursor: pointer;
             }
 
-            .education-box {
+            .section-box {
                 padding: 10px;
                 background: #f6fbff;
                 border: 1px solid #dddddd;
                 margin-bottom: 20px;
             }
 
-            .education-box .grade {
+            .section-box .title {
                 font-size: 18px;
             }
 
-            .education-box .date-range {
+            .section-box .date-range {
                 color: #686868;
                 text-transform: uppercase;
                 font-size: 14px;
@@ -91,7 +94,7 @@
                 margin-bottom: 8px;
             }
 
-            .education-box .course {
+            .section-box .description {
                 font-size: 14px;
             }
         </style>
@@ -189,11 +192,11 @@
                     Full Stack Software Developer
                 </div>
                 <div id="main-menu">
-                    <div class="menu-item">Home</div>
-                    <div class="menu-item {{ request()->routeIs('education') ? 'active' : '' }}">Education</div>
-                    <div class="menu-item">Employment history</div>
-                    <div class="menu-item">Projects</div>
-                    <div class="menu-item">Contact</div>
+                    <a href="/" class="menu-item">Home</a>
+                    <a href="{{ route('education') }}" class="menu-item {{ request()->routeIs('education') ? 'active' : '' }}">Education</a>
+                    <a href="#" class="menu-item">Employment history</a>
+                    <a href="#"  class="menu-item">Projects</a>
+                    <a href="#"  class="menu-item">Contact</a>
                 </div>
             </div>
         </div>
